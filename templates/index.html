@@ -12,11 +12,19 @@
     />
     <title>Crypto Talk</title>
   </head>
-  <body>
+  <body class="bg-dark">
     <div>
-      <h1 class="text-primary">Crypto Talk</h1>
+      <div>
+        <img class ="img-fluid" src="{% load static %} /static/logo.png" "
+        alt="Crypto Talk"
+      </div>
 
-      <form class="form-inline" method="POST" action="">
+      <form
+        class="form-inline"
+        method="POST"
+        action="{{  'news/' }}"
+        name="news"
+      >
         <div class="input-group mb-3">
           {%csrf_token%}
           <input
@@ -24,10 +32,11 @@
             class="form-control"
             placeholder="Enter Crypto"
             name="search"
+            style="width: 50%; display: block; margin: 0 auto"
           />
           <button
             class="btn btn-outline-primary btn-lg"
-            type="button"
+            type="submit"
             id="button-addon2"
           >
             Search
