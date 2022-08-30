@@ -6,12 +6,12 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def index(requests):
-    return render(requests, 'index.html')
+def index(request):
+    return render(request, 'index.html')
 
 
-def news(requests): 
-    if requests.method == 'POST':
+def news(request): 
+    if request.method == 'POST':
         url = "https://google-finance4.p.rapidapi.com/search/"
 
         querystring = {"q":"airbnb","hl":"en","gl":"US"}
@@ -23,8 +23,8 @@ def news(requests):
 
         response = requests.request("GET", url, headers=headers, params=querystring)
 
-        print(response.text)
+       
 
-        return render(requests, 'news.html')
+        return render(request, 'news.html')
     else:
         return HttpResponse('Error')

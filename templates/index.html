@@ -13,8 +13,17 @@
     <title>Crypto Talk</title>
   </head>
   <body class="bg-dark">
-    <div>
-      <div>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        align-content: center;
+        width: 500px;
+        margin: 0 auto;
+        justify-content: center;
+      "
+    >
+      <div style="margin: 370px auto">
         <img class ="img-fluid" src="{% load static %} /static/logo.png" "
         alt="Crypto Talk"
       </div>
@@ -25,17 +34,27 @@
         action="{{ 'news/' }}"
         name="news"
       >
-        <div class="input-group mb-3">
+        <div
+          class="input-group mb-3"
+          style="margin: 0 auto; display: flex; width: 450px"
+        >
           {%csrf_token%}
           <input
             type="text"
             class="form-control"
             placeholder="Enter Crypto"
             name="search"
-            style="width: 50%; display: block; margin: 0 auto"
+            style="
+              display: block;
+              margin: 0 auto;
+              border-top-left-radius: 0;
+              border-bottom-right-radius: 0;
+              border-top-left-radius: 5px;
+              border-bottom-left-radius: 5px;
+            "
           />
           <button
-            class="btn btn-outline-primary btn-lg"
+            class="btn btn-outline-primary btn-md"
             type="submit"
             id="button-addon2"
           >
