@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-def news(request): 
+def news(request, article): 
     if request.method == 'POST':
         url = "https://google-finance4.p.rapidapi.com/search/"
 
@@ -26,5 +26,6 @@ def news(request):
        
 
         return render(request, 'news.html')
+             "article": response 
     else:
         return HttpResponse('Error')
