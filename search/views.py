@@ -25,7 +25,7 @@ def news(request, article):
 
        
 
-        return render(request, 'news.html')
-             "article": response 
+        return render(request, 'news.html', {
+             "article": response })  
     else:
         return HttpResponse('Error')
