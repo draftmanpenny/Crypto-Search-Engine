@@ -130,4 +130,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statcifiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-APPEND_SLASH =False
