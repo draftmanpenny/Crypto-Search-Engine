@@ -19,6 +19,7 @@
         align-items: center;
         align-content: center;
         width: 500px;
+        height: 500px;
         margin: 0 auto;
         justify-content: center;
       "
@@ -27,7 +28,6 @@
         <img class ="img-fluid" src="{% load static %} /static/logo.png" "
         alt="Crypto Talk"
       </div>
-
       <form
         class="form-inline"
         method="POST"
@@ -63,6 +63,7 @@
         </div>
       </form>
     </div>
+    {% block content%} {% endblock content %}
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

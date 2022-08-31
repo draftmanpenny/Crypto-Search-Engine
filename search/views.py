@@ -10,11 +10,11 @@ def index(request):
     return render(request, 'index.html')
 
 
-def news(request, article): 
+def news(request): 
     if request.method == 'POST':
         url = "https://google-finance4.p.rapidapi.com/ticker/"
 
-        querystring = {"t":"LIT-USD","hl":"en","gl":"US"}
+        querystring = {"t":"ETH-USD","hl":"en","gl":"US"}
 
         headers = {
             "X-RapidAPI-Key": "31c5541e87msh0684494d7f7396fp117984jsn574856ff6d0c",
