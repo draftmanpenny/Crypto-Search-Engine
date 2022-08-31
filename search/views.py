@@ -25,7 +25,7 @@ def news(request, article):
         response.status_code
         response.text
         response.json()
-        articles = response.json()['news', 'price']
+        articles = response.json()['news']
 
        
 
