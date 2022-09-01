@@ -3,6 +3,7 @@ import requests
 from django.views import generic
 from django.views.generic import TemplateView
 from django.http import HttpResponse
+from . import coins 
 # Create your views here.
 
 
