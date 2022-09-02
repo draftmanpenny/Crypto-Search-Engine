@@ -27,11 +27,11 @@ def news(request):
         response.status_code
         response.text
         response.json()
-        articles = response.json()['news']
+        article = response.json()['news']
 
        
 
         return render(request, 'news.html', {
-             "article": articles })  
+             "article": article })  
     else:
         return HttpResponse('Error')
