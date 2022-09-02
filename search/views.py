@@ -13,6 +13,7 @@ def index(request):
 
 def news(request): 
     if request.method == 'POST':
+       
         url = "https://google-finance4.p.rapidapi.com/ticker/"
 
         querystring = {"t":"ETH-USD","hl":"en","gl":"US"}
