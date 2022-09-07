@@ -6,8 +6,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-coins = {"Ethereum": "ETH-USD",
-     "Bitcoin": "BIT-USD", 
+coins = {
+    "Ethereum": "ETH-USD",
+    "Bitcoin": "BIT-USD", 
     "Litcoin": "LIT-USD", 
     "Solona": "SOL-USD", 
     "Binance": "BNB-USD", 
@@ -15,7 +16,7 @@ coins = {"Ethereum": "ETH-USD",
     "XRP": "XRP-USD", 
     "Cardano": "ADA-USD", 
     "Dogeoin": "DOGE-USD", 
-    "Chainlink": "LINK-USD"}
+    "Chainlink": "LINK-USD" }
 
 def index(request):
     return render(request, 'index.html')
@@ -30,7 +31,7 @@ def news(request):
             "X-RapidAPI-Host": "google-finance4.p.rapidapi.com"
         }
         crypto = request.POST["search"]
-        if crypto in coins:
+        if crypto not in coins:
             querystring["t"] = crypto
             response = requests.request("GET", url, headers=headers, params=querystring)
             response.status_code
