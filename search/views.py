@@ -28,15 +28,17 @@ def news(request):
         crypto = request.POST['search']
         url = "https://google-search3.p.rapidapi.com/api/v1/news/q=" + crypto 
 
-    headers = {
-        "X-User-Agent": "desktop",
-        "X-Proxy-Location": "US",
-        "X-RapidAPI-Key": "31c5541e87msh0684494d7f7396fp117984jsn574856ff6d0c",
-        "X-RapidAPI-Host": "google-search3.p.rapidapi.com"
-    }
+        headers = {
+            "X-User-Agent": "desktop",
+            "X-Proxy-Location": "US",
+            "X-RapidAPI-Key": "31c5541e87msh0684494d7f7396fp117984jsn574856ff6d0c",
+            "X-RapidAPI-Host": "google-search3.p.rapidapi.com"
+        }
 
-    response = requests.request("GET", url, headers=headers)
-    results = response.json()
-
-    print(results)['entries']
+        response = requests.request("GET", url, headers=headers)
+        result = response.json()['entries']
+        return render(request, 'news.html', {
+            "article": result })  
+    else:
+        return HttpResponse('Error')
    
