@@ -3,6 +3,7 @@ import requests
 from django.views import generic
 from django.views.generic import TemplateView
 from django.http import HttpResponse
+import json 
 
 # Create your views here.
 
@@ -24,24 +25,18 @@ def index(request):
 
 def news(request): 
     if request.method == 'POST':
-        querystring = {"t":" ","hl":"en","gl":"US"}
-        url = "https://google-finance4.p.rapidapi.com/ticker/"
-        headers = {
-            "X-RapidAPI-Key": "31c5541e87msh0684494d7f7396fp117984jsn574856ff6d0c",
-            "X-RapidAPI-Host": "google-finance4.p.rapidapi.com"
-        }
-        crypto = request.POST["search"]
-        if crypto not in coins:
-            querystring["t"] = crypto
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            response.status_code
-            response.text
-            response.json()
-            articles = response.json()['news'][0:]
+        crypto = request.POST['search']
+        url = "https://google-search3.p.rapidapi.com/api/v1/news/q=" + crypto 
 
-            return render(request, 'news.html', {
-                "article": articles })  
-        else:
-            return HttpResponse('<h1> Error </h1>')
+    headers = {
+        "X-User-Agent": "desktop",
+        "X-Proxy-Location": "US",
+        "X-RapidAPI-Key": "31c5541e87msh0684494d7f7396fp117984jsn574856ff6d0c",
+        "X-RapidAPI-Host": "google-search3.p.rapidapi.com"
+    }
 
+    response = requests.request("GET", url, headers=headers)
+    results = response.json()
 
+    print(results)['entries']
+   
